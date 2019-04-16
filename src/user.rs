@@ -42,6 +42,7 @@ impl FindAllRequest {
 }
 
 impl<'a> UserClient<'a> {
+    /// Get all users among several pages.
     pub fn find_all(&self, request: &FindAllRequest) -> Result<Vec<User>, Error> {
         let mut url = self.server_url.join("users")?;
         if let Some(page) = request.page {
@@ -54,6 +55,7 @@ impl<'a> UserClient<'a> {
         Ok(users)
     }
 
+    /// Get a user information by specifying user ID.
     pub fn find_by_id(&self, user_id: &str) -> Result<User, Error> {
         let url = self.server_url.join("users/")?.join(user_id)?;
         let user: User = reqwest::get(url.as_str())?.json()?;
