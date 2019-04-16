@@ -1,12 +1,5 @@
-# AOJ-Client
-
-REST API Client for http://developers.u-aizu.ac.jp/index
-
-## Example
-
-```rust
-use aoj_client::solution::findallrequest;
 use aoj_client::client;
+use aoj_client::solution::findallrequest;
 use failure::error;
 
 fn main() -> result<(), error> {
@@ -19,4 +12,3 @@ fn main() -> result<(), error> {
     }
     ok(())
 }
-```

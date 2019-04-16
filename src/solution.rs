@@ -15,9 +15,9 @@ impl<'a> SolutionClient<'a> {
 #[derive(Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "camelCase")]
 pub struct Solution {
-    judge_id: u64,
-    user_id: String,
-    problem_id: String,
+    pub judge_id: u64,
+    pub user_id: String,
+    pub problem_id: String,
 }
 
 #[derive(Default)]

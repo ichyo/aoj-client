@@ -1,5 +1,5 @@
-mod solution;
-mod user;
+pub mod solution;
+pub mod user;
 
 use failure::Error;
 use solution::SolutionClient;
