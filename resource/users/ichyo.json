@@ -1,0 +1,25 @@
+{
+    "id": "ichyo",
+    "name": "ichyo",
+    "affiliation": "AOJ-ICPC",
+    "registerDate": 1277708050162,
+    "lastSubmitDate": 1532746315405,
+    "policy": "public",
+    "country": "jp",
+    "birthYear": null,
+    "displayLanguage": "Japanese",
+    "defaultProgrammingLanguage": "C++",
+    "avatar": null,
+    "status": {
+        "submissions": 3196,
+        "solved": 1118,
+        "accepted": 1490,
+        "wrongAnswer": 1040,
+        "timeLimit": 287,
+        "memoryLimit": 77,
+        "outputLimit": 2,
+        "compileError": 114,
+        "runtimeError": 185
+    },
+    "url": "ichyo.jp/aoj-icpc"
+}

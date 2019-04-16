@@ -43,7 +43,7 @@ impl FindAllRequest {
 
 impl<'a> UserClient<'a> {
     pub fn find_all(&self, request: &FindAllRequest) -> Result<Vec<User>, Error> {
-        let mut url = self.server_url.join("/users")?;
+        let mut url = self.server_url.join("users")?;
         if let Some(page) = request.page {
             url.query_pairs_mut().append_pair("page", &page.to_string());
         }
@@ -52,6 +52,12 @@ impl<'a> UserClient<'a> {
         }
         let users = reqwest::get(url.as_str())?.json()?;
         Ok(users)
+    }
+
+    pub fn find_by_id(&self, user_id: &str) -> Result<User, Error> {
+        let url = self.server_url.join("users/")?.join(user_id)?;
+        let user: User = reqwest::get(url.as_str())?.json()?;
+        Ok(user)
     }
 }
 
@@ -83,6 +89,29 @@ mod tests {
                 affiliation: "AOJ-ICPC".to_string(),
             }],
             users
+        );
+        mock.assert();
+    }
+
+    #[test]
+    fn test_find_by_id() {
+        let mock = mockito::mock("GET", "/users/ichyo")
+            .with_status(200)
+            .with_header("content-type", "application/json;charset=UTF-8")
+            .with_body(include_str!("../resource/users/ichyo.json"))
+            .create();
+
+        let url = Url::parse(&mockito::server_url()).unwrap();
+        let client: UserClient = UserClient::new(&url);
+        let user: User = client.find_by_id("ichyo").unwrap();
+
+        assert_eq!(
+            User {
+                id: "ichyo".to_string(),
+                name: "ichyo".to_string(),
+                affiliation: "AOJ-ICPC".to_string(),
+            },
+            user
         );
         mock.assert();
     }
