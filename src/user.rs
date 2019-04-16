@@ -13,6 +13,7 @@ impl<'a> UserClient<'a> {
 }
 
 #[derive(Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "camelCase")]
 pub struct User {
     id: String,
     name: String,

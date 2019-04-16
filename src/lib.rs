@@ -1,6 +1,8 @@
+mod solution;
 mod user;
 
 use failure::Error;
+use solution::SolutionClient;
 use url::Url;
 use user::UserClient;
 
@@ -27,5 +29,9 @@ impl Client {
 
     pub fn user_client(&self) -> UserClient {
         UserClient::new(&self.server_url)
+    }
+
+    pub fn solution_client(&self) -> SolutionClient {
+        SolutionClient::new(&self.server_url)
     }
 }

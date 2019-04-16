@@ -1,0 +1,18 @@
+[
+    {
+        "judgeId": 3491131,
+        "userId": "irtfrm",
+        "problemId": "ALDS1_1_D",
+        "language": "Python3",
+        "version": "3.6.3",
+        "submissionDate": 1555425099864,
+        "judgeDate": 1555425105471,
+        "cpuTime": 145,
+        "memory": 14672,
+        "codeSize": 383,
+        "server": 9,
+        "policy": "public",
+        "rating": -1,
+        "review": -1
+    }
+]
