@@ -1,14 +1,14 @@
-use aoj_client::client;
-use aoj_client::solution::findallrequest;
-use failure::error;
+use aoj_client::solution::FindAllRequest;
+use aoj_client::Client;
+use failure::Error;
 
-fn main() -> result<(), error> {
-    let client = client::default();
+fn main() -> Result<(), Error> {
+    let client = Client::default();
     let solutions = client
         .solution_client()
-        .find_all(findallrequest::default().set_page(0).set_size(10))?;
+        .find_all(FindAllRequest::default().set_page(0).set_size(10))?;
     for solution in solutions {
         println!("{} solved {}", solution.user_id, solution.problem_id);
     }
-    ok(())
+    Ok(())
 }
