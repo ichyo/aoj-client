@@ -1,5 +1,5 @@
 use failure::Error;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use url::Url;
 
 pub struct SolutionClient<'a> {
@@ -12,7 +12,7 @@ impl<'a> SolutionClient<'a> {
     }
 }
 
-#[derive(Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "camelCase")]
 pub struct Solution {
     pub judge_id: u64,
