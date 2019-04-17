@@ -1,3 +1,5 @@
+use chrono::prelude::*;
+use chrono::serde::ts_milliseconds;
 use failure::Error;
 use serde::{Deserialize, Serialize};
 use url::Url;
@@ -18,6 +20,8 @@ pub struct Solution {
     pub judge_id: u64,
     pub user_id: String,
     pub problem_id: String,
+    #[serde(with = "ts_milliseconds")]
+    pub submission_date: DateTime<Utc>,
 }
 
 #[derive(Default)]
@@ -62,6 +66,7 @@ mod tests {
     use super::FindAllRequest;
     use super::Solution;
     use super::SolutionClient;
+    use chrono::prelude::*;
     use url::Url;
 
     #[test]
@@ -83,6 +88,7 @@ mod tests {
                 judge_id: 3491131,
                 user_id: "irtfrm".to_string(),
                 problem_id: "ALDS1_1_D".to_string(),
+                submission_date: Utc.timestamp_millis(1555425099864),
             }],
             solutions
         );
