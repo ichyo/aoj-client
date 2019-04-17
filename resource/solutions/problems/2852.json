@@ -1,0 +1,18 @@
+[
+  {
+    "judgeId": 2715941,
+    "userId": "runoth",
+    "problemId": "2852",
+    "language": "JAVA",
+    "version": "1.8.0_45",
+    "submissionDate": 1519079850600,
+    "judgeDate": 1519079855952,
+    "cpuTime": 26,
+    "memory": 37020,
+    "codeSize": 3130,
+    "server": 7,
+    "policy": "public",
+    "rating": -1,
+    "review": -1
+  }
+]
